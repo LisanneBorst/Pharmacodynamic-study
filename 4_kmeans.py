@@ -36,7 +36,7 @@ channels_interest = ['EEG 3', 'EEG 12'] # Channels that have signal (-0 for pyth
 channel_names = ['OFC_right', 'OFC_left' ] # Corresponding channel names
 
 # Specify folder paths
-folder_epochs = 'folder_epochs/sliced_epochs_DBSCAN'  # Folder for epoch files 
+folder_epochs = 'folder_epochs/sliced_epochs'  # Folder for epoch files 
 folder_features = 'features_dataframes/dataframes_DBSCAN' # Folder for features_dataframes
 
 """
