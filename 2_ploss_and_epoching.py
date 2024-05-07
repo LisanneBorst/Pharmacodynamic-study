@@ -3,7 +3,6 @@ Script to exclude EEG package loss and create epochs of the data
 
 Input: EEG fif files, after filtering
 
-
 """
 
 # packages
@@ -21,6 +20,8 @@ channels_interest = ['EEG 3', 'EEG 4', 'EEG 7', 'EEG 10', 'EEG 11', 'EEG 12'] # 
 channel_names = ['OFC_right', 'S_right', 'EMG_right', 'EMG_left', 'S_left', 'OFC_left' ] # Define corresponding channel names
 low_val, high_val = 0.006, 0.013 # Rejection values for package loss
 dur = 5  # Duration of epochs in seconds
+# Define the threshold for rejecting epochs based on the number of NaN values
+ploss_threshold = 500  # miliseconds
 
 """
 Exclude the package loss
@@ -77,9 +78,6 @@ for raw_filename in os.listdir(raw_folder_path):
     """ 
     Select the bad epochs
     """
-    # Define the threshold for rejecting epochs (bad epochs) based on the number of NaN values
-    ploss_threshold = 500  # miliseconds
-    sfreq = raw_data.info['sfreq']
     # Iterate through epochs and apply artifact rejection criteria
     bad_epochs = []
     for idx, epoch in enumerate(ploss_epochs):
