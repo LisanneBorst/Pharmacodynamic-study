@@ -43,6 +43,9 @@ exclusions = [
 epsilon = 3
 min_samples = 4
 
+# Custom colors for DBSCAN
+custom_colors = ['#ff6633', '#148191', '#149014', '#00b3b3', '#40bf80'] #first is for outliers
+
 """ 
 Define basic functions to calculate features
 """
@@ -184,9 +187,6 @@ for filename in os.listdir(folder_epochs):
     principal_components = pca.fit_transform(scaled_features)
     pca_df = pd.DataFrame(data=principal_components, columns=['PC1', 'PC2'])
     pca_df['DBSCAN_cluster'] = features_OFC_df['DBSCAN_cluster']
-
-    # Define custom colors
-    custom_colors = ['#ff6633', '#148191', '#149014'] #first is for outliers
 
     # Plot PCA scatter plot
     plt.figure(figsize=(8, 6))
