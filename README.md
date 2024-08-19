@@ -4,9 +4,13 @@ This folder contains scripts to filter, cluster and analyse EEG data after admin
 
 Short overview:
 1_filtering.py -- Filters raw EEG 
+
 2_ploss_and_epoching.py -- Takes the preprocessed EEG files, marks EEG package loss and creates epochs of the data.
+
 3_clustering_and_dbscan.py -- Processes EEG epoch data by extracting features and applying DBSCAN to mark the outliers.
+
 4_kmeans.py -- Processes EEG epoch data through K-means clustering and generates various plots (PCA plots, correlation plots, PSD plots) to visualise results
+
 5_PSD_relative.ipynb -- Notebook to visualise the data using PSD plots.
 
 Change before use: 
